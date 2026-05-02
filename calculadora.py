@@ -31,6 +31,13 @@ st.markdown("""
         border: 2px solid #38bdf8;
         text-align: center;
     }
+    
+    /* NUEVAS REGLAS PARA OCULTAR MENÚS Y FOOTER */
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    .block-container {
+        padding-top: 2rem;
     </style>
     """, unsafe_allow_html=True)
 # Encabezado Dinámico
