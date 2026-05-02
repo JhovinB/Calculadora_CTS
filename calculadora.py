@@ -31,14 +31,26 @@ st.markdown("""
         border: 2px solid #38bdf8;
         text-align: center;
     }
-    
-    /* NUEVAS REGLAS PARA OCULTAR MENÚS Y FOOTER */
     header {visibility: hidden;}
-    footer {visibility: hidden;}
+    footer {visibility: hidden; display: none;}
     #MainMenu {visibility: hidden;}
+    
+    /* Eliminar el avatar y la corona de la esquina inferior */
+    div[data-testid="stStatusWidget"] {
+        visibility: hidden;
+        display: none;
+    }
+    
+    /* Eliminar botón de deploy si persiste */
+    .stAppDeployButton {
+        display: none;
+    }
+
+    /* Ajuste de espacio superior */
     .block-container {
         padding-top: 2rem;
-    </style>
+    }
+    </style>         
     """, unsafe_allow_html=True)
 # Encabezado Dinámico
 st.markdown(f"<h1 style='text-align: center;'>Calculadora CTS 2026</h1>", unsafe_allow_html=True)
