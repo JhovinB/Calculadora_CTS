@@ -4,6 +4,22 @@ from datetime import date
 # 1. CONFIGURACIÓN DE PÁGINA
 st.set_page_config(page_title="Calculadora CTS Perú 2026", layout="wide")
 
+# 1. CONFIGURACIÓN DE PÁGINA (Debe ser lo primero)
+st.set_page_config(
+    page_title="Calculadora CTS 2026 Perú | Cálculo exacto según Ley",
+    layout="wide",
+    menu_items={
+        'Get Help': 'https://github.com/JhovinB',
+        'About': "# Calculadora de CTS Profesional\nDesarrollada para trabajadores de Perú siguiendo la Ley N.º 32322."
+    }
+)
+
+# 1.1 VERIFICACIÓN DE PROPIEDAD PARA GOOGLE SEARCH CONSOLE
+st.markdown("""
+    <head>
+        <meta name="google-site-verification" content="6FhXLrOzwlJiAnoYcnU4Wn_NMv-y71-PH9lwi6WsYMk" />
+    </head>
+""", unsafe_allow_html=True)
 # 2. CSS PARA DISEÑO MIDNIGHT
 st.markdown("""
     <style>
