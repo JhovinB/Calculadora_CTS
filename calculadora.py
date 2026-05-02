@@ -1,10 +1,7 @@
 import streamlit as st
 from datetime import date
 
-# 1. CONFIGURACIÓN DE PÁGINA
-st.set_page_config(page_title="Calculadora CTS Perú 2026", layout="wide")
-
-# 1. CONFIGURACIÓN DE PÁGINA (Debe ser lo primero)
+# CONFIGURACIÓN DE PÁGINA
 st.set_page_config(
     page_title="Calculadora CTS 2026 Perú",
     layout="wide",
@@ -14,13 +11,14 @@ st.set_page_config(
     }
 )
 
-# 1.1 VERIFICACIÓN DE PROPIEDAD PARA GOOGLE SEARCH CONSOLE
+# VERIFICACIÓN
 st.markdown("""
     <head>
         <meta name="google-site-verification" content="6FhXLrOzwlJiAnoYcnU4Wn_NMv-y71-PH9lwi6WsYMk" />
     </head>
 """, unsafe_allow_html=True)
-# 2. CSS PARA DISEÑO MIDNIGHT
+
+# DISEÑO 
 st.markdown("""
     <style>
     /* 1. ESTILOS DE MARCA Y CONTENEDORES */
@@ -80,31 +78,31 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
-# Encabezado Dinámico
+
+# ENCABEZADO
 st.markdown(f"<h1 style='text-align: center;'>Calculadora CTS 2026</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #94a3b8;'>Simulación precisa según Ley N.º 32322 (Retiro 100%)</p>", unsafe_allow_html=True)
 st.divider()
 
 col1, col2 = st.columns([1, 1], gap="large")
 
-# 3. LÓGICA DE DETECCIÓN INTELIGENTE
-# Definimos los cortes fijos del año 2026
+# LÓGICA
+## Definimos las fechas
 CORTE_MAYO = date(2026, 4, 30)
 INICIO_MAYO = date(2025, 11, 1)
 
 CORTE_NOVIEMBRE = date(2026, 10, 31)
 INICIO_NOVIEMBRE = date(2026, 5, 1)
 
-# --- INICIO DE LA INTERFAZ---
+# INTERFAZ
 col1, col2 = st.columns([1, 1], gap="large")
 
 with col1:
     st.markdown("### 📝 Ingreso de Datos")
     with st.container(border=True):
-        # El usuario elige fecha
+     
         fecha_ingreso = st.date_input("Fecha de Ingreso Laboral", value=date(2026, 1, 1))
-        
-        # --- CÁLCULO DINÁMICO ---
+       
         if fecha_ingreso <= CORTE_MAYO:
             nombre_periodo = "Mayo 2026"
             f_corte = CORTE_MAYO
@@ -120,7 +118,6 @@ with col1:
         st.markdown("---")
         st.info(f"💡 Semestre: **{f_inicio.strftime('%d/%m/%Y')}** al **{f_corte.strftime('%d/%m/%Y')}**")
         
-        # Cálculo de tiempo dentro del semestre seleccionado
         fecha_inicio_real = max(fecha_ingreso, f_inicio)
         if fecha_inicio_real > f_corte:
             st.warning("⚠️ La fecha de ingreso está fuera del rango de este año.")
@@ -167,7 +164,7 @@ with col2:
     else:
         st.info(f"Selecciona tus datos. Actualmente el sistema detecta el periodo de **{nombre_periodo}**.")
         
-    # --- SECCIÓN DE SEO Y GUÍA INFORMATIVA (Aquí es donde lo colocamos) ---
+    # GUÍA INFORMATIVA
 st.markdown("---")
 col_seo1, col_seo2 = st.columns(2)
 
