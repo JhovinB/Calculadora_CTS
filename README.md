@@ -20,5 +20,5 @@ Esta es una aplicación profesional desarrollada con **Python** y **Streamlit** 
 3. Indica si percibes Asignación Familiar.
 4. Haz clic en "CALCULAR" para obtener el desglose detallado de tu beneficio social.
 ---
-#Contacto
+##  Contacto
 Desarrollado por JhovinB - Ingeniero de Sistemas.
