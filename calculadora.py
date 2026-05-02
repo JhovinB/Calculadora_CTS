@@ -7,14 +7,17 @@ st.set_page_config(page_title="Calculadora CTS Perú 2026", layout="wide")
 # 2. CSS PARA DISEÑO MIDNIGHT
 st.markdown("""
     <style>
+    /* 1. ESTILOS DE MARCA Y CONTENEDORES */
     .stApp { background-color: #0f172a; }
     h1, h2, h3, p, label { color: #f8fafc !important; }
+    
     div[data-testid="stVerticalBlock"] > div.stColumn > div {
         background-color: #1e293b;
         padding: 20px;
         border-radius: 15px;
         border: 1px solid #334155;
     }
+    
     .stButton>button {
         width: 100%;
         border-radius: 12px;
@@ -24,6 +27,7 @@ st.markdown("""
         font-weight: bold;
         border: none;
     }
+    
     .result-card {
         background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         padding: 30px;
@@ -31,26 +35,34 @@ st.markdown("""
         border: 2px solid #38bdf8;
         text-align: center;
     }
-    header {visibility: hidden;}
-    footer {visibility: hidden; display: none;}
-    #MainMenu {visibility: hidden;}
+
+    /* 2. LIMPIEZA TOTAL DE ELEMENTOS DE STREAMLIT (ELIMINA AVATAR Y CORONA) */
     
-    /* Eliminar el avatar y la corona de la esquina inferior */
-    div[data-testid="stStatusWidget"] {
-        visibility: hidden;
-        display: none;
-    }
-    
-    /* Eliminar botón de deploy si persiste */
-    .stAppDeployButton {
-        display: none;
+    /* Oculta la barra superior, el menú de hamburguesa y el pie de página */
+    header, footer, #MainMenu {
+        visibility: hidden !important;
+        display: none !important;
     }
 
-    /* Ajuste de espacio superior */
-    .block-container {
-        padding-top: 2rem;
+    /* Elimina el widget de estado (Avatar y Corona en la esquina inferior derecha) */
+    div[data-testid="stStatusWidget"], 
+    .stStatusWidget,
+    div[data-testid="stToolbar"] {
+        visibility: hidden !important;
+        display: none !important;
     }
-    </style>         
+
+    /* Elimina cualquier botón de Deploy o sugerencia de edición */
+    .stAppDeployButton, .stDeployButton, .stDecoration {
+        display: none !important;
+    }
+
+    /* 3. OPTIMIZACIÓN DE ESPACIO */
+    .block-container {
+        padding-top: 1rem !important;
+        padding-bottom: 0rem !important;
+    }
+    </style>
     """, unsafe_allow_html=True)
 # Encabezado Dinámico
 st.markdown(f"<h1 style='text-align: center;'>Calculadora CTS 2026</h1>", unsafe_allow_html=True)
