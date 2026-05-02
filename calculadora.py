@@ -6,7 +6,7 @@ st.set_page_config(page_title="Calculadora CTS Perú 2026", layout="wide")
 
 # 1. CONFIGURACIÓN DE PÁGINA (Debe ser lo primero)
 st.set_page_config(
-    page_title="Calculadora CTS 2026 Perú | Cálculo exacto según Ley",
+    page_title="Calculadora CTS 2026 Perú",
     layout="wide",
     menu_items={
         'Get Help': 'https://github.com/JhovinB',
@@ -166,6 +166,22 @@ with col2:
             
     else:
         st.info(f"Selecciona tus datos. Actualmente el sistema detecta el periodo de **{nombre_periodo}**.")
+        
+    # --- SECCIÓN DE SEO Y GUÍA INFORMATIVA (Aquí es donde lo colocamos) ---
+st.markdown("---")
+col_seo1, col_seo2 = st.columns(2)
+
+with col_seo1:
+    st.markdown("### ❓ Guía rápida de la CTS 2026 en Perú")
+    st.write("**¿Quiénes reciben CTS?**")
+    st.write("Trabajadores del régimen laboral privado con jornada mínima de 4 horas.")
+    st.write("**¿Cuándo se paga?**")
+    st.write("Depósitos en la primera quincena de mayo y noviembre.")
+
+with col_seo2:
+    st.markdown("### ⚖️ Base Legal y Retiro")
+    st.write("**Ley N.º 32322:** Esta ley autoriza el retiro del 100% de los fondos de CTS durante el año 2026.")
+    st.write("**Disponibilidad:** El cálculo aquí mostrado es una simulación de lo que tu empleador debe depositar en tu cuenta bancaria.")    
 
 # Pie de página
 st.markdown("---")
